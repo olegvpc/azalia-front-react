@@ -58,12 +58,10 @@ function App() {
           setCurrentUser(userData);
           setMessages(messagesData);
           localStorage.setItem('savedMessages', JSON.stringify(messagesData)); // для тестирования
+          if (messagesData.length === 0) {
+                handleSaveMessage("Вдохновение - это умение приводить себя в рабочее состояние", "А.С. Пушкин")
+              }
           setIsError(false);
-        })
-        .then(()=> {
-                    if (messages.length === 0) {
-              handleSaveMessage("Вдохновение - это умение приводить себя в рабочее состояние", "А.С. Пушкин")
-            }
         })
         .catch((err) => {
           setIsError(true);
